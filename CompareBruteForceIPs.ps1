@@ -57,6 +57,17 @@ if($Comparar) {
             }
         }
     }    
+	
+	# Mostra novos IPs
+	foreach($entry in $FAILED_ENTRIES) {
+		# Procura pela Entrada na Pesquisa Atual
+        $cEntry = $oldData | Where-Object -Property IP -EQ $entry.IP 
+    
+        # 
+        if($cEntry -eq $null) {
+            Write-Host "New IP reported: $($entry.IP)"
+        } 
+	}
 } 
 
 $data = ConvertTo-Json $FAILED_ENTRIES

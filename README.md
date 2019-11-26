@@ -30,3 +30,5 @@ On first run the script will only collect the list of IPs that are performing at
 MUST run on SQL Server Machine as it will create rules on port 1433 to automatically block access to IPs that are identified as malicious. 
 This script can  be scheduled and run multiple times , but running at short intervals can cause high resource consumption on the SQL Server server.
 
+**.\ListBlockedIPs**
+MUST run on SQL Server Machine as it will list all created rules to block ips. 
