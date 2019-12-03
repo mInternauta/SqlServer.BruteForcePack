@@ -1,10 +1,13 @@
 . ("$PSScriptRoot\Functions.ps1")
 
 # 
-Begin_App -procName "Brute-Force IP Created Rules"
+Begin_App -procName "Brute-Force IP Search Rules"
+
+
+$SearchIP = Read-Host "IP to Search"
 
 # List
-$RulesCreated = Get-NetFirewallRule -DisplayName "*SQL_BLOCK*"
+$RulesCreated = Get-NetFirewallRule -DisplayName "*$SearchIP*"
 
 foreach($rule in $RulesCreated) {
     $ipFilter =  $rule | Get-NetFirewallAddressFilter
@@ -21,5 +24,3 @@ Write-Host "Count of Rules: $($RulesCreated.Count)"
 
 #
 End_App
-
-Read-Host

@@ -7,7 +7,7 @@ Begin_App -procName "Brute-Force IP Identify"
 Open_DBConn 
 
 # Realiza a Consulta
-Write-Host "Querying..."
+Write-Host "Executando a Consulta..."
 
 $cmd = New-Object System.Data.SqlClient.SqlCommand("EXEC master.dbo.bruteforce_IPLoginFailed 1;", $APP_ENV.DB_CONN) 
 $cmd.CommandTimeout = 600
@@ -29,7 +29,7 @@ $FAILED_ENTRIES = $ENTRIES | Where-Object -Property Qtd -GE $APP_ENV.CONFIGS.Max
 
 # Lista
 foreach($entry in $FAILED_ENTRIES) {    
-    Write-Host "IP: $($entry.IP) / Fails: $($entry.Qtd)"
+    Write-Host "IP: $($entry.IP) / Falhas: $($entry.Qtd)"
 }
 
 #

@@ -14,12 +14,12 @@ function Begin_App([String] $procName)
     }
 
     Start-Transcript -Path "$PSScriptRoot\Logs\$procName.log"  
-    Write-Host "Starting"
-    Write-Host "Procedure: $procName" 
+    Write-Host "Inicio do Procedimento"
+    Write-Host "Procedimento: $procName" 
 }
 
 function Open_DBConn() {
-    Write-Host "Opening Database Connection"
+    Write-Host "Iniciando Conexão com o BD..."
 
     $conn = New-Object System.Data.SqlClient.SqlConnection($APP_ENV.CONFIGS.ConnString);
     $conn.Open();
@@ -33,7 +33,7 @@ function Close_DBConn() {
     }
 }
 
-function End_App() {    
+function End_App() {        Write-Host "Fim do Procedimento"
     Close_DBConn 
     Stop-Transcript
 }

@@ -18,6 +18,9 @@ Its really simple to install de pack, just follow these steps:
 
 ** MaxFailedLogins  ** =  Number of Failed Logins that will be considered as attack 
 
+** Whitelist ** - IPs in this array will be ignored 
+
+
 # Functions and Utilities
 **.\IdentifyBruteForceIPs.ps1**
 Identifies the IPs that are performing attacks at the last hour.
@@ -32,3 +35,6 @@ This script can  be scheduled and run multiple times , but running at short inte
 
 **.\ListBlockedIPs**
 MUST run on SQL Server Machine as it will list all created rules to block ips. 
+
+**.\SearchBlockedIPs.ps1**
+Search for a IP in the BLOCKED Firewall Rules 
